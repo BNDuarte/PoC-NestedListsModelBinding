@@ -1,0 +1,25 @@
+﻿@model Repository.Models.ProductComment
+
+<tr>
+    @using (Html.BeginCollectionItem("Comments"))
+    {
+
+        <td>
+            @if (Model.ProductCommentId > 0)
+            {
+                @Html.HiddenFor(model => model.ProductCommentId)
+            }
+
+            @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+        </td>
+        <td>
+            @Html.EditorFor(model => model.CommentDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CommentDate, "", new { @class = "text-danger" })
+        </td>
+    }
+</tr>
